@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">VolFloatt</string>
+    <string name="vol_icon_description">vol icon</string>
+    <string name="control_floating_volume_widget">Control Floating Volume Widget</string>
+    <string name="start_floating_widget">Start Floating Widget</string>
+</resources>
