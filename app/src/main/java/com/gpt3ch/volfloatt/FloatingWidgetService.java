@@ -20,9 +20,7 @@ public class FloatingWidgetService extends Service {
     private WindowManager mWindowManager;
     WindowManager.LayoutParams params;
     private View mFloatingView;
-    private int initialX;
     private int initialY;
-    private float initialTouchX;
     private float initialTouchY;
     private boolean isDragging = false;
     private static final int TOUCH_TOLERANCE = 10; // Adjust this value as needed
@@ -67,23 +65,17 @@ public class FloatingWidgetService extends Service {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     params = ((WindowManager.LayoutParams) mFloatingView.getLayoutParams());
-                    initialX = params.x;
                     initialY = params.y;
-                    initialTouchX = event.getRawX();
                     initialTouchY = event.getRawY();
                     isDragging = false;
                     return true;
                 case MotionEvent.ACTION_MOVE:
-                    float deltaX = event.getRawX() - initialTouchX;
                     float deltaY = initialTouchY - event.getRawY(); // Inverted Y calculation
-                    if (!isDragging && (Math.abs(deltaX) > TOUCH_TOLERANCE || Math.abs(deltaY) > TOUCH_TOLERANCE)) {
+                    if (!isDragging &&  Math.abs(deltaY) > TOUCH_TOLERANCE) {
                         isDragging = true;
                     }
                     if (isDragging) {
-                        int newX = initialX + (int) deltaX;
-                        int newY = initialY + (int) deltaY;
-                        params.x = newX;
-                        params.y = newY;
+                        params.y = initialY + (int) deltaY;
                         mWindowManager.updateViewLayout(mFloatingView, params);
                     }
                     return true;
