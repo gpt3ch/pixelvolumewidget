@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.VolFloatt.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:theme="@style/Theme.VolFloatt.AppWidgetContainer">
+
+    <ImageButton
+        android:id="@+id/widget_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round_button_background"
+        android:src="@mipmap/widget_img"
+        android:contentDescription="@string/activate_vol_float_widget_btn" />
+
+</RelativeLayout>
