@@ -28,7 +28,7 @@ public class VolumeClickListener implements android.view.View.OnClickListener {
                 if (dialog.getWindow() != null) {
                     dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                 }
-                dialog.setOnShowListener(DialogInterface::dismiss); // Note: Lambda needs to be adapted
+                dialog.setOnShowListener(DialogInterface::dismiss);
                 dialog.show();
             } catch (Exception e) {
                 Log.e("FloatingWidget", "Error showing transparent dialog: " + e.getMessage());
