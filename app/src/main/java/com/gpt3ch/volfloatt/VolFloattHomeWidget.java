@@ -17,7 +17,8 @@ public class VolFloattHomeWidget extends AppWidgetProvider {
         final Intent serviceIntent = new Intent(context, FloatingWidgetService.class);
 
         // Create a PendingIntent to start the service when the widget is clicked
-        final PendingIntent pendingIntent = PendingIntent.getService(context, 0, serviceIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        final PendingIntent pendingIntent = PendingIntent.getService(context, 0, serviceIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         // Get the RemoteViews for your widget layout
         final RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.vol_floatt_home_widget);

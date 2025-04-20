@@ -47,11 +47,7 @@ public class FloatingWidgetService extends Service {
         registerReceiver(screenOnBroadcastReceiver, screenOnFilter);
 
         clickListener= new VolumeClickListener(this);
-
-        // Ensure the widget is shown when the service starts (if needed)
-        if (mFloatingView == null) {
-            showWidget();
-        }
+        showWidget();
     }
 
     @SuppressLint("ClickableViewAccessibility")
