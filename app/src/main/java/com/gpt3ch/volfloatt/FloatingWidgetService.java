@@ -28,7 +28,7 @@ public class FloatingWidgetService extends Service {
     private static final int TOUCH_TOLERANCE = 10; // Adjust this value as needed
 
     @Override
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(final Intent intent) {
         return null;
     }
 
@@ -43,7 +43,7 @@ public class FloatingWidgetService extends Service {
         if(screenOnBroadcastReceiver == null) {
             screenOnBroadcastReceiver = new ScreenOnBroadcastReceiver(this);
         }
-        IntentFilter screenOnFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+        final IntentFilter screenOnFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         registerReceiver(screenOnBroadcastReceiver, screenOnFilter);
 
         clickListener= new VolumeClickListener(this);
@@ -112,7 +112,6 @@ public class FloatingWidgetService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i(SERVICE_NAME, "on destroy called for FloatingWidgetService");
         unregisterReceiver(screenOnBroadcastReceiver);
         if (mFloatingView != null) {
             mWindowManager.removeView(mFloatingView);

@@ -4,4 +4,8 @@
     <string name="control_floating_volume_widget">Control Floating Volume Widget</string>
     <string name="start_floating_widget">Start Floating Widget</string>
     <string name="activate_volume_float">Activate Volume Float</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="activate_vol_float_widget_btn">Activate Volume Float</string>
 </resources>
