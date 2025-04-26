@@ -2,6 +2,7 @@ package com.gpt3ch.volfloatt;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Button;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         startStopButton.setOnClickListener(v -> toggleFloatingWidgetService());
 
         checkOverlayPermission();
+
+        Intent serviceIntent = new Intent(this, VolumeControlService.class);
+        startForegroundService(serviceIntent);
     }
 
     private void checkOverlayPermission() {
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, PERMISSION_REQUEST_CODE);
         } else {
-            startFloatingWidgetService();
+//            startFloatingWidgetService();
             isServiceRunning = true;
             updateButtonText();
         }
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (Settings.canDrawOverlays(this)) {
-                startFloatingWidgetService();
+//                startFloatingWidgetService();
                 isServiceRunning = true;
                 updateButtonText();
             } else {
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void toggleFloatingWidgetService() {
         if (isServiceRunning) {
-            stopFloatingWidgetService();
+//            stopFloatingWidgetService();
             isServiceRunning = false;
         } else {
             checkOverlayPermission(); // Re-check permission before starting again

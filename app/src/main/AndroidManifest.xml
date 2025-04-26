@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <application
         android:allowBackup="true"
@@ -26,9 +28,15 @@
                 android:resource="@xml/vol_floatt_home_widget_info" />
         </receiver>
 
+<!--        <service-->
+<!--            android:name=".FloatingWidgetService"-->
+<!--            android:exported="false" />-->
+
         <service
-            android:name=".FloatingWidgetService"
-            android:exported="false" />
+            android:name=".VolumeControlService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="false">
+        </service>
 
         <activity
             android:name=".MainActivity"
